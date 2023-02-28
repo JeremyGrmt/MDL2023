@@ -7,7 +7,7 @@ call symfony composer require profiler --dev
 call symfony composer require debug --dev
 call symfony composer require symfony/form
 call symfony composer require symfony/validator
-call symfony composer require symfony/orm-pack
+call symfony composer require symfony/orm-pack -W
 call symfony composer require symfony/mime
 call symfony composer require symfony/asset
 call symfony composer require symfony/mailer
