@@ -16,4 +16,12 @@ class DisciplinesController extends AbstractController
             'controller_name' => 'DisciplinesController',
         ]);
     }
+    
+    #[Route('/fleuret', name: 'fleuret')]
+    public function fleuret() :Response
+    {
+        return $this->render('disciplines/fleuret.html.twig', [
+            'controller_name' => 'DisciplinesController',
+        ]);
+    }
 }
