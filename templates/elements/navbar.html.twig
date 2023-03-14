@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="http://maisondesligues.fr/">Accueil</a>
+        <a class="navbar-brand" href="http://maisondesligues.fr/">
+   <img src="{{ asset('/images/Logo.png') }}" alt="Logo de la maison des ligues" style="height:50px"></a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,8 +46,8 @@
                 </li>
             </ul>
             <form>
-                <button class="btn btn-outline-success" type="submit">Connexion</button>
-                <button class="btn btn-outline-success" type="submit">Inscription</button>
+                <a class="btn btn-outline-success" href="/ateliers/projetsClub">Connexion</a>
+                <a class="btn btn-outline-success" href="/ateliers/projetsClub">Inscription</a>
             </form>
         </div>
     </div>
