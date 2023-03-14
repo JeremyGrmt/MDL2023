@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/datesCongres', name: 'dates_congres')]
 class DatesCongresController extends AbstractController
 {
-    #[Route('/', name: 'dates_congres')]
+    #[Route('/', name: 'datecongres')]
     public function index(): Response
     {
         return $this->render('dates_congres/index.html.twig', [

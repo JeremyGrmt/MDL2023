@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/hebergement', name: 'app_hebergement')]
+#[Route('/hebergement', name: 'hebergement_')]
 class HebergementController extends AbstractController
 {
     #[Route('/', name: 'app_hebergement')]

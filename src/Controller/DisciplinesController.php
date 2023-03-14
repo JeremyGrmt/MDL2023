@@ -24,4 +24,12 @@ class DisciplinesController extends AbstractController
             'controller_name' => 'DisciplinesController',
         ]);
     }
+    
+    #[Route('/sabre', name: 'sabre')]
+    public function sabre() :Response
+    {
+        return $this->render('disciplines/sabre.html.twig', [
+            'controller_name' => 'DisciplinesController',
+        ]);
+    }
 }
