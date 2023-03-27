@@ -45,10 +45,12 @@
                     <a class="nav-link" aria-current="page" href="/hebergement/">les formules d'hébergement</a>
                 </li>
             </ul>
+{#            {% if connecté %}#}
             <form>
                 <a class="btn btn-outline-success" href="/ateliers/projetsClub">Connexion</a>
                 <a class="btn btn-outline-success" href="/ateliers/projetsClub">Inscription</a>
             </form>
+{#            {% else %} <div class="affichagenom"> connecté en temps que : <b><?php echo $_SESSION['nom'] ." ". $_SESSION['prenom'] ?></b></div> {% endif %}#}
         </div>
     </div>
 </nav>
