@@ -6,15 +6,35 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .formule {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .formule h2 {
+        margin-top: 0;
+    }
+    .formule p {
+        margin-bottom: 10px;
+    }
+    .formule form {
+        display: inline-block;
+    }
 </style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/logan.raisin/Documents/AP MDL/MDL2023/src/Controller/HebergementController.php'|file_link(0) }}">src/Controller/HebergementController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/logan.raisin/Documents/AP MDL/MDL2023/templates/hebergement/index.html.twig'|file_link(0) }}">templates/hebergement/index.html.twig</a></code></li>
-    </ul>
+<h1>Formules d'Hébergement</h1>
+<br>
+<div class="row">
+    {% for formule in formules %}
+      <div class="col-md-4 formule">
+        <h2>{{ formule.titre }}</h2>
+        <p>{{ formule.description }}</p>
+        <p>Prix : {{ formule.prix }} €</p>
+        <form action="/inscription" method="post">
+          <input type="hidden" name="formule_id" value="{{ formule.id }}">
+          <button type="submit">S'inscrire</button>
+        </form>
+      </div>
+    {% endfor %}
 </div>
 {% endblock %}
