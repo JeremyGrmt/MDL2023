@@ -31,7 +31,7 @@ class Hotel
     #[ORM\Column(length: 50)]
     private ?string $ville = null;
 
-    #[ORM\ManyToOne(mappedBy: 'hotel', targetEntity: Chambre::class)]
+    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Chambre::class)]
     private Collection $chambres;
 
     public function getId(): ?int

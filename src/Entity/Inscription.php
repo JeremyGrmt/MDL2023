@@ -22,9 +22,13 @@ class Inscription
     #[ORM\ManyToMany(targetEntity: user::class, inversedBy: 'inscriptions')]
     private Collection $user_licence;
 
+    #[ORM\ManyToMany(targetEntity: InscritionAtelier::class, mappedBy: 'inscription')]
+    private Collection $inscritionAteliers;
+
     public function __construct()
     {
         $this->user_licence = new ArrayCollection();
+        $this->inscritionAteliers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -64,6 +68,33 @@ class Inscription
     public function removeUserLicence(user $userLicence): self
     {
         $this->user_licence->removeElement($userLicence);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, InscritionAtelier>
+     */
+    public function getInscritionAteliers(): Collection
+    {
+        return $this->inscritionAteliers;
+    }
+
+    public function addInscritionAtelier(InscritionAtelier $inscritionAtelier): self
+    {
+        if (!$this->inscritionAteliers->contains($inscritionAtelier)) {
+            $this->inscritionAteliers->add($inscritionAtelier);
+            $inscritionAtelier->addInscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscritionAtelier(InscritionAtelier $inscritionAtelier): self
+    {
+        if ($this->inscritionAteliers->removeElement($inscritionAtelier)) {
+            $inscritionAtelier->removeInscription($this);
+        }
 
         return $this;
     }
