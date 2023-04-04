@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\InscriptionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: InscriptionRepository::class)]
@@ -16,19 +15,18 @@ class Inscription
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_inscription = null;
+    #[ORM\ManyToOne(inversedBy: 'inscriptions')]
+    private ?chambre $chambre = null;
 
-    #[ORM\ManyToMany(targetEntity: user::class, inversedBy: 'inscriptions')]
-    private Collection $user_licence;
+    #[ORM\ManyToOne(inversedBy: 'inscriptions')]
+    private ?restauration $restauration = null;
 
-    #[ORM\ManyToMany(targetEntity: InscritionAtelier::class, mappedBy: 'inscription')]
-    private Collection $inscritionAteliers;
+    #[ORM\ManyToMany(targetEntity: atelier::class, inversedBy: 'inscriptions')]
+    private Collection $atelier;
 
     public function __construct()
     {
-        $this->user_licence = new ArrayCollection();
-        $this->inscritionAteliers = new ArrayCollection();
+        $this->atelier = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -36,65 +34,50 @@ class Inscription
         return $this->id;
     }
 
-    public function getDateInscription(): ?\DateTimeInterface
+    public function getChambre(): ?chambre
     {
-        return $this->date_inscription;
+        return $this->chambre;
     }
 
-    public function setDateInscription(\DateTimeInterface $date_inscription): self
+    public function setChambre(?chambre $chambre): self
     {
-        $this->date_inscription = $date_inscription;
+        $this->chambre = $chambre;
+
+        return $this;
+    }
+
+    public function getRestauration(): ?restauration
+    {
+        return $this->restauration;
+    }
+
+    public function setRestauration(?restauration $restauration): self
+    {
+        $this->restauration = $restauration;
 
         return $this;
     }
 
     /**
-     * @return Collection<int, user>
+     * @return Collection<int, atelier>
      */
-    public function getUserLicence(): Collection
+    public function getAtelier(): Collection
     {
-        return $this->user_licence;
+        return $this->atelier;
     }
 
-    public function addUserLicence(user $userLicence): self
+    public function addAtelier(atelier $atelier): self
     {
-        if (!$this->user_licence->contains($userLicence)) {
-            $this->user_licence->add($userLicence);
+        if (!$this->atelier->contains($atelier)) {
+            $this->atelier->add($atelier);
         }
 
         return $this;
     }
 
-    public function removeUserLicence(user $userLicence): self
+    public function removeAtelier(atelier $atelier): self
     {
-        $this->user_licence->removeElement($userLicence);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, InscritionAtelier>
-     */
-    public function getInscritionAteliers(): Collection
-    {
-        return $this->inscritionAteliers;
-    }
-
-    public function addInscritionAtelier(InscritionAtelier $inscritionAtelier): self
-    {
-        if (!$this->inscritionAteliers->contains($inscritionAtelier)) {
-            $this->inscritionAteliers->add($inscritionAtelier);
-            $inscritionAtelier->addInscription($this);
-        }
-
-        return $this;
-    }
-
-    public function removeInscritionAtelier(InscritionAtelier $inscritionAtelier): self
-    {
-        if ($this->inscritionAteliers->removeElement($inscritionAtelier)) {
-            $inscritionAtelier->removeInscription($this);
-        }
+        $this->atelier->removeElement($atelier);
 
         return $this;
     }

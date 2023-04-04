@@ -27,14 +27,15 @@ class Atelier
     #[ORM\ManyToMany(targetEntity: vacation::class, inversedBy: 'ateliers')]
     private Collection $vacation;
 
-    #[ORM\ManyToMany(targetEntity: InscritionAtelier::class, mappedBy: 'atelier')]
-    private Collection $inscritionAteliers;
+    #[ORM\ManyToMany(targetEntity: Inscription::class, mappedBy: 'atelier')]
+    private Collection $inscriptions;
+
 
     public function __construct()
     {
         $this->theme = new ArrayCollection();
         $this->vacation = new ArrayCollection();
-        $this->inscritionAteliers = new ArrayCollection();
+        $this->inscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -115,29 +116,30 @@ class Atelier
     }
 
     /**
-     * @return Collection<int, InscritionAtelier>
+     * @return Collection<int, Inscription>
      */
-    public function getInscritionAteliers(): Collection
+    public function getInscriptions(): Collection
     {
-        return $this->inscritionAteliers;
+        return $this->inscriptions;
     }
 
-    public function addInscritionAtelier(InscritionAtelier $inscritionAtelier): self
+    public function addInscription(Inscription $inscription): self
     {
-        if (!$this->inscritionAteliers->contains($inscritionAtelier)) {
-            $this->inscritionAteliers->add($inscritionAtelier);
-            $inscritionAtelier->addAtelier($this);
+        if (!$this->inscriptions->contains($inscription)) {
+            $this->inscriptions->add($inscription);
+            $inscription->addAtelier($this);
         }
 
         return $this;
     }
 
-    public function removeInscritionAtelier(InscritionAtelier $inscritionAtelier): self
+    public function removeInscription(Inscription $inscription): self
     {
-        if ($this->inscritionAteliers->removeElement($inscritionAtelier)) {
-            $inscritionAtelier->removeAtelier($this);
+        if ($this->inscriptions->removeElement($inscription)) {
+            $inscription->removeAtelier($this);
         }
 
         return $this;
     }
+
 }
