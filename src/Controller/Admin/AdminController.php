@@ -32,7 +32,7 @@ class AdminController extends AbstractDashboardController
         return $this->render('admin/adminboard.html.twig');
     }
 
-    #[Route('/addatelier', name: 'fleuret')]
+    #[Route('/admin/addatelier', name: 'add_atelier')]
     public function addatelier() :Response
     {
         return $this->render('admin/addatelier.html.twig', [
@@ -40,7 +40,7 @@ class AdminController extends AbstractDashboardController
         ]);
     }
     
-    #[Route('/addtheme', name: 'fleuret')]
+    #[Route('/admin/addtheme', name: 'add_theme')]
     public function addtheme() :Response
     {
         return $this->render('disciplines/fleuret.html.twig', [
@@ -48,7 +48,7 @@ class AdminController extends AbstractDashboardController
         ]);
     }
     
-    #[Route('/addvacation', name: 'fleuret')]
+    #[Route('/admin/addvacation', name: 'add_theme')]
     public function addvacation() :Response
     {
         return $this->render('disciplines/fleuret.html.twig', [
