@@ -20,12 +20,14 @@ class Hotel
     private ?int $cp = null;
 
     #[ORM\Column(length: 50)]
+    #[ORM\Regex(pattern:"/^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/", message:"Le mail n'est pas bon")]
     private ?string $mail = null;
 
     #[ORM\Column(length: 20)]
     private ?string $nom = null;
 
     #[ORM\Column(length: 10)]
+    #[ORM\Regex(pattern:"/^(\+33|0)[1-9](\d{2}){4}$/", message:"Le numéro n'est pas bon")]
     private ?string $tel = null;
 
     #[ORM\Column(length: 50)]
