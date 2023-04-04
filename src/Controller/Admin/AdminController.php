@@ -32,6 +32,30 @@ class AdminController extends AbstractDashboardController
         return $this->render('admin/adminboard.html.twig');
     }
 
+    #[Route('/addatelier', name: 'fleuret')]
+    public function addatelier() :Response
+    {
+        return $this->render('admin/addatelier.html.twig', [
+            'controller_name' => 'DisciplinesController',
+        ]);
+    }
+    
+    #[Route('/addtheme', name: 'fleuret')]
+    public function addtheme() :Response
+    {
+        return $this->render('disciplines/fleuret.html.twig', [
+            'controller_name' => 'DisciplinesController',
+        ]);
+    }
+    
+    #[Route('/addvacation', name: 'fleuret')]
+    public function addvacation() :Response
+    {
+        return $this->render('disciplines/fleuret.html.twig', [
+            'controller_name' => 'DisciplinesController',
+        ]);
+    }
+    
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
