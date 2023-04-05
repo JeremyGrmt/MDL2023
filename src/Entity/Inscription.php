@@ -16,10 +16,10 @@ class Inscription
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscriptions')]
-    private ?chambre $chambre = null;
+    private ?Chambre $chambre = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscriptions')]
-    private ?restauration $restauration = null;
+    private ?Restauration $restauration = null;
 
     #[ORM\ManyToMany(targetEntity: atelier::class, inversedBy: 'inscriptions')]
     private Collection $atelier;
@@ -34,24 +34,24 @@ class Inscription
         return $this->id;
     }
 
-    public function getChambre(): ?chambre
+    public function getChambre(): ?Chambre
     {
         return $this->chambre;
     }
 
-    public function setChambre(?chambre $chambre): self
+    public function setChambre(?Chambre $chambre): self
     {
         $this->chambre = $chambre;
 
         return $this;
     }
 
-    public function getRestauration(): ?restauration
+    public function getRestauration(): ?Restauration
     {
         return $this->restauration;
     }
 
-    public function setRestauration(?restauration $restauration): self
+    public function setRestauration(?Restauration $restauration): self
     {
         $this->restauration = $restauration;
 
