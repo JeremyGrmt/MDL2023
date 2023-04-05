@@ -3,6 +3,7 @@
 namespace AtelierCrudController;
 
 use App\Entity\Atelier;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class AtelierCrudController extends AbstractCrudController
@@ -10,6 +11,13 @@ class AtelierCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Atelier::class;
+    }
+    
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInPlural('Ateliers')
+            ->setEntityLabelInSingular('Atelier');
     }
 
     /*

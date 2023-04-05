@@ -2,18 +2,21 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Atelier;
+use App\Entity\Vacation;
+use App\Entity\Theme;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminController extends AbstractDashboardController
+class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        //return parent::index();
+        return $this->render('admin/adminboard.html.twig');
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
@@ -29,33 +32,9 @@ class AdminController extends AbstractDashboardController
         // Option 3. You can render some custom template to display a proper dashboard with widgets, etc.
         // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
         //
-        return $this->render('admin/adminboard.html.twig');
+        // return $this->render('some/path/my-dashboard.html.twig');
     }
 
-    #[Route('/admin/addatelier', name: 'add_atelier')]
-    public function addatelier() :Response
-    {
-        return $this->render('admin/addatelier.html.twig', [
-            'controller_name' => 'DisciplinesController',
-        ]);
-    }
-    
-    #[Route('/admin/addtheme', name: 'add_theme')]
-    public function addtheme() :Response
-    {
-        return $this->render('disciplines/fleuret.html.twig', [
-            'controller_name' => 'DisciplinesController',
-        ]);
-    }
-    
-    #[Route('/admin/addvacation', name: 'add_theme')]
-    public function addvacation() :Response
-    {
-        return $this->render('disciplines/fleuret.html.twig', [
-            'controller_name' => 'DisciplinesController',
-        ]);
-    }
-    
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
@@ -65,6 +44,8 @@ class AdminController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+//        yield MenuItem::linkToCrud('Ateliers', 'fas fa-list', Atelier::class);
+//        yield MenuItem::linkToCrud('Thèmes', 'fas fa-list', Theme::class);
+//        yield MenuItem::linkToCrud('Vacations', 'fas fa-list', Vacation::class);
     }
 }
