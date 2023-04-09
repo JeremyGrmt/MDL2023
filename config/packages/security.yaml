@@ -13,6 +13,11 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
+    role_hierarchy:
+        ROLE_INSCRIT:     ROLE_LICENCIE
+        ROLE_USER:        ROLE_LICENCIE
+        ROLE_ADMIN:       ROLE_LICENCIE
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
