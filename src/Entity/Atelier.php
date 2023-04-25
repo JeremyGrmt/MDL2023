@@ -21,10 +21,10 @@ class Atelier
     #[ORM\Column]
     private ?int $nbplaces = null;
 
-    #[ORM\ManyToMany(targetEntity: theme::class, inversedBy: 'ateliers')]
+    #[ORM\ManyToMany(targetEntity: Theme::class, inversedBy: 'ateliers')]
     private Collection $theme;
 
-    #[ORM\ManyToMany(targetEntity: vacation::class, inversedBy: 'ateliers')]
+    #[ORM\ManyToMany(targetEntity: Vacation::class, inversedBy: 'ateliers')]
     private Collection $vacation;
 
     #[ORM\ManyToMany(targetEntity: Inscription::class, mappedBy: 'atelier')]

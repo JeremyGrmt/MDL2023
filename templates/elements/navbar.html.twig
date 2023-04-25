@@ -44,6 +44,11 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/hebergement/">les formules d'hébergement</a>
                 </li>
+                {#{% if user.role == 'ROLE_ADMIN' %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/admin/">administration</a>
+                </li>
+                {% endif %}#}
             </ul>
             <form>
                 <a class="btn btn-outline-success" href="/connexion">Connexion</a>
