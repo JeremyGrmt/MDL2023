@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\VacationRepository;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,6 +19,7 @@ class Vacation
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+
     private ?\DateTimeInterface $date_heure_debut = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -30,6 +33,7 @@ class Vacation
         $this->ateliers = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +41,7 @@ class Vacation
 
     public function getDateHeureDebut(): ?\DateTimeInterface
     {
+
         return $this->date_heure_debut;
     }
 
@@ -82,6 +87,7 @@ class Vacation
         if ($this->ateliers->removeElement($atelier)) {
             $atelier->removeVacation($this);
         }
+
 
         return $this;
     }

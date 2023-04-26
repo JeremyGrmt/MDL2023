@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\AtelierRepository;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AtelierRepository::class)]
@@ -14,6 +16,7 @@ class Atelier
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
 
     #[ORM\Column(length: 50)]
     private ?string $libelle = null;
@@ -38,10 +41,12 @@ class Atelier
         $this->inscriptions = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
     }
+
 
     public function getLibelle(): ?string
     {
@@ -64,8 +69,10 @@ class Atelier
     {
         $this->nbplaces = $nbplaces;
 
+
         return $this;
     }
+
 
     /**
      * @return Collection<int, theme>
@@ -141,5 +148,4 @@ class Atelier
 
         return $this;
     }
-
 }
