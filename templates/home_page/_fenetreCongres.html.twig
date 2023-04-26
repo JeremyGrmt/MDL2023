@@ -10,38 +10,36 @@
                 {#<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>#}
                 <div class="container">
-                    <center>
-                        <div class="row">
-                            <div class="card col" style="width: 18rem; margin: 0 10px">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nom Vacation</h5>
-                                    <h6 class="card-subtitle mb-2 ">dates vacations</h6>
-                                    <p class="card-text text-muted">nombre de place dispo.</p>
-                                    <p class="card-text">listes des themes</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                            <div class="card col" style="width: 18rem; margin: 0 10px">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                            <div class="card col" style="width: 18rem; margin: 0 10px">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
+                    {#                    <center>#}
+                    {% foreach atelier in ateliers %} 
+                    {{ endforeach }}
+                    <div class="row">
+                        <div class="card col-md" style="width: 18rem; margin: 0 10px">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ atelier.nom }}</h5>
+                                <h6 class="card-subtitle mb-2 ">{{ vacation.date_heure_debut }} - {{  vacation.date_heure_fin }}</h6>
+                                <p class="card-text text-muted">{{ atelier.nbPlaces }}</p>
+                                <p class="card-text">listes des themes</p>
                             </div>
                         </div>
-                    </center>
+                        <div class="card col-md" style="width: 18rem; margin: 0 10px">  
+                            <div class="card-body">
+                                <h5 class="card-title">{{ atelier.nom }}</h5>
+                                <h6 class="card-subtitle mb-2 ">{{ vacation.date_heure_debut }} - {{  vacation.date_heure_fin }}</h6>
+                                <p class="card-text text-muted">{{ atelier.nbPlaces }}</p>
+                                <p class="card-text">listes des themes</p>
+                            </div>
+                        </div>
+                        <div class="card col-md" style="width: 18rem; margin: 0 10px">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ atelier.nom }}</h5>
+                                <h6 class="card-subtitle mb-2 ">{{ vacation.date_heure_debut }} - {{  vacation.date_heure_fin }}</h6>
+                                <p class="card-text text-muted">{{ atelier.nbPlaces }}</p>
+                                <p class="card-text">listes des themes</p>
+                            </div>
+                        </div>
+                    </div>
+                    {#                    </center>#}
                 </div>
 
             </div>
