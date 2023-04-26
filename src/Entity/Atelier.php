@@ -30,7 +30,7 @@ class Atelier
     #[ORM\ManyToMany(targetEntity: Vacation::class, inversedBy: 'ateliers')]
     private Collection $vacation;
 
-    #[ORM\ManyToMany(targetEntity: Inscription::class, mappedBy: 'atelier')]
+    #[ORM\ManyToMany(targetEntity: Inscription::class, mappedBy: 'ateliers')]
     private Collection $inscriptions;
 
 
@@ -148,4 +148,5 @@ class Atelier
 
         return $this;
     }
+
 }
