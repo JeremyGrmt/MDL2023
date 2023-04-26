@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Inscrit;
+use App\Entity\Compte;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -10,21 +10,21 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
- * @extends ServiceEntityRepository<Inscrit>
+ * @extends ServiceEntityRepository<Compte>
  *
- * @method Inscrit|null find($id, $lockMode = null, $lockVersion = null)
- * @method Inscrit|null findOneBy(array $criteria, array $orderBy = null)
- * @method Inscrit[]    findAll()
- * @method Inscrit[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Compte|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Compte|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Compte[]    findAll()
+ * @method Compte[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class InscritRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
+class CompteRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Inscrit::class);
+        parent::__construct($registry, Compte::class);
     }
 
-    public function save(Inscrit $entity, bool $flush = false): void
+    public function save(Compte $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -33,7 +33,7 @@ class InscritRepository extends ServiceEntityRepository implements PasswordUpgra
         }
     }
 
-    public function remove(Inscrit $entity, bool $flush = false): void
+    public function remove(Compte $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -47,7 +47,7 @@ class InscritRepository extends ServiceEntityRepository implements PasswordUpgra
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
-        if (!$user instanceof Inscrit) {
+        if (!$user instanceof Compte) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
         }
 
@@ -57,24 +57,24 @@ class InscritRepository extends ServiceEntityRepository implements PasswordUpgra
     }
 
 //    /**
-//     * @return Inscrit[] Returns an array of Inscrit objects
+//     * @return Compte[] Returns an array of Compte objects
 //     */
 //    public function findByExampleField($value): array
 //    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
+//        return $this->createQueryBuilder('c')
+//            ->andWhere('c.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('i.id', 'ASC')
+//            ->orderBy('c.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Inscrit
+//    public function findOneBySomeField($value): ?Compte
 //    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
+//        return $this->createQueryBuilder('c')
+//            ->andWhere('c.exampleField = :val')
 //            ->setParameter('val', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()
