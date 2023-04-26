@@ -2,5 +2,20 @@
 
 {% block title %}Accueil{% endblock %}
 {% block body %}
-    <div ><img style="width:100%" src="{{asset(absolute_url("images/BgEscrime.jpg"))}}"></img></div>
+    {# <div ><img style="width:100%; position: absolute ; z-index: 1; filter: blur(4px)" src="{{asset(absolute_url("images/BgEscrime.jpg"))}}"></img>
+     {{ include("home_page/_fenetreCongres.html.twig") }}
+     </div>#}
+
+    <body style="background-image: url('{{absolute_url("images/BgEscrime.jpg")}}');  background-size: cover;background-repeat: no-repeat; background-filter: blur(5px);background-color: #fff;background-position: center;">
+        <div style="position: relative;  left: 5px; top:0 {#z-index: 1;#}">
+            <p style="color: black; font-size: 10px">image de viaprodesign sur freepik</p>
+        </div>
+        {{ include("home_page/_fenetreCongres.html.twig") }}
+        {#        <img src="{{asset(absolute_url("images/BgEscrime.jpg"))}}" style="width:100%; position: absolute ; z-index: 1; filter: blur(4px)"width="100%" height="auto" alt="...">#}
+        
+
+    </body>
+
+
+
 {% endblock %}
