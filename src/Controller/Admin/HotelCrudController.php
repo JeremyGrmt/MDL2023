@@ -35,12 +35,6 @@ class HotelCrudController extends AbstractCrudController {
             TextField::new('ville'),
             TextField::new('tel'),
             EmailField::new('mail'),
-                    AssociationField::new('chambres')
-                    ->setFormTypeOption('by_reference', false)
-                    ->setFormTypeOptions([
-                        'required' => false,
-                        'multiple' => true,
-                    ]),
         ];
 
         if ($pageName === Crud::PAGE_INDEX) {
