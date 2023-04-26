@@ -13,8 +13,10 @@ class HomePageController extends AbstractController
     const DOMAINE_API = 'http://mdl-api.fr/';
     public function index(): Response
     {
+        $compte = $this->getUser();
         return $this->render('home_page/index.html.twig', [
             'controller_name' => 'HomePageController',
+            'compte' => $compte,
         ]);
     }
     

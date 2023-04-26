@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Atelier;
 use App\Entity\Vacation;
 use App\Entity\Theme;
+use App\Entity\Compte;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -44,9 +45,11 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linkToUrl('Accueil', 'fa fa-home','/');
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Ateliers', 'fas fa-list', Atelier::class);
         yield MenuItem::linkToCrud('Thèmes', 'fas fa-list', Theme::class);
         yield MenuItem::linkToCrud('Vacations', 'fas fa-list', Vacation::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', Compte::class);
     }
 }

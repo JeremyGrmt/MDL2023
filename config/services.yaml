@@ -26,3 +26,6 @@ services:
             $api_Url: '%app.API_URL%'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    app.easyadmin_user_service:
+        class: App\Service\EasyAdminUserService
+        arguments: [ '@security.user_password_hasher' ]
