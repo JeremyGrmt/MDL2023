@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HotelRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: HotelRepository::class)]
@@ -33,8 +35,18 @@ class Hotel
     #[ORM\Column(length: 50)]
     private ?string $ville = null;
 
-    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Chambre::class)]
-    private Collection $chambres;
+
+    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Proposer::class)]
+    private Collection $tarifs;
+
+    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Nuite::class)]
+    private Collection $nuites;
+
+    public function __construct()
+    {
+        $this->tarifs = new ArrayCollection();
+        $this->nuites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -112,31 +124,61 @@ class Hotel
 
         return $this;
     }
-    
+
     /**
-     * @return Collection<int, chambre>
+     * @return Collection<int, Proposer>
      */
-    public function getChambre(): Collection
+    public function getTarifs(): Collection
     {
-        return $this->Chambre;
+        return $this->tarifs;
     }
 
-    public function addChambre(Chambre $chambre): self
+    public function addTarif(Proposer $tarif): self
     {
-        if (!$this->chambres->contains($chambre)) {
-            $this->chambres->add($chambre);
-            $chambre->setHotel($this);
+        if (!$this->tarifs->contains($tarif)) {
+            $this->tarifs->add($tarif);
+            $tarif->setHotel($this);
         }
 
         return $this;
     }
 
-    public function removeChambre(Chambre $chambre): self
+    public function removeTarif(Proposer $tarif): self
     {
-        if ($this->chambres->removeElement($chambre)) {
+        if ($this->tarifs->removeElement($tarif)) {
             // set the owning side to null (unless already changed)
-            if ($chambre->getChambre() === $this) {
-                $chambre->setHotel(null);
+            if ($tarif->getHotel() === $this) {
+                $tarif->setHotel(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Nuite>
+     */
+    public function getNuites(): Collection
+    {
+        return $this->nuites;
+    }
+
+    public function addNuite(Nuite $nuite): self
+    {
+        if (!$this->nuites->contains($nuite)) {
+            $this->nuites->add($nuite);
+            $nuite->setHotel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNuite(Nuite $nuite): self
+    {
+        if ($this->nuites->removeElement($nuite)) {
+            // set the owning side to null (unless already changed)
+            if ($nuite->getHotel() === $this) {
+                $nuite->setHotel(null);
             }
         }
 
