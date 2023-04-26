@@ -16,17 +16,18 @@ class Inscription
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscriptions')]
-    private ?Chambre $chambre = null;
-
-    #[ORM\ManyToOne(inversedBy: 'inscriptions')]
     private ?Restauration $restauration = null;
 
     #[ORM\ManyToMany(targetEntity: atelier::class, inversedBy: 'inscriptions')]
     private Collection $atelier;
 
+    #[ORM\OneToMany(mappedBy: 'inscription', targetEntity: Nuite::class)]
+    private Collection $nuites;
+
     public function __construct()
     {
         $this->atelier = new ArrayCollection();
+        $this->nuites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -34,29 +35,6 @@ class Inscription
         return $this->id;
     }
 
-    public function getChambre(): ?Chambre
-    {
-        return $this->chambre;
-    }
-
-    public function setChambre(?Chambre $chambre): self
-    {
-        $this->chambre = $chambre;
-
-        return $this;
-    }
-
-    public function getRestauration(): ?Restauration
-    {
-        return $this->restauration;
-    }
-
-    public function setRestauration(?Restauration $restauration): self
-    {
-        $this->restauration = $restauration;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, atelier>
@@ -78,6 +56,36 @@ class Inscription
     public function removeAtelier(atelier $atelier): self
     {
         $this->atelier->removeElement($atelier);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Nuite>
+     */
+    public function getNuites(): Collection
+    {
+        return $this->nuites;
+    }
+
+    public function addNuite(Nuite $nuite): self
+    {
+        if (!$this->nuites->contains($nuite)) {
+            $this->nuites->add($nuite);
+            $nuite->setInscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNuite(Nuite $nuite): self
+    {
+        if ($this->nuites->removeElement($nuite)) {
+            // set the owning side to null (unless already changed)
+            if ($nuite->getInscription() === $this) {
+                $nuite->setInscription(null);
+            }
+        }
 
         return $this;
     }

@@ -19,8 +19,10 @@ class HomePageController extends AbstractController
     {
         $ateliers = $doctrine->getRepository(Atelier::class)->findAll();
 //        $hotel = $doctrine->getRepository($persistentObject)
+        $compte = $this->getUser();
         return $this->render('home_page/index.html.twig', [
             'controller_name' => 'HomePageController',
+            'compte' => $compte,
             'ateliers' => $ateliers
         ]);
     }
