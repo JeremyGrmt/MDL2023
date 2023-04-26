@@ -22,14 +22,13 @@ class Chambre
     private ?float $tarif = null;
 
     #[ORM\ManyToOne(inversedBy: 'chambres')]
-    private  ?Hotel $hotel;
+    private  ?Hotel $hotel = null;
 
     #[ORM\OneToMany(mappedBy: 'chambre', targetEntity: Inscription::class)]
     private Collection $inscriptions;
 
     public function __construct()
     {
-        $this->hotel = new ArrayCollection();
         $this->inscriptions = new ArrayCollection();
     }
 
