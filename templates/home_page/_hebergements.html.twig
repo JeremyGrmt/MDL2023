@@ -1,9 +1,9 @@
 {% block cadre_Hebergement %}
-     <center>
+    <center>
         <div class="card w-75 " style=" background: rgba(255, 255, 255, 0.7);
              position: relative; margin:  3% 12.5%;{# z-index: 9999#}">
             <div class="card-header">
-                
+
             </div>
             <div class="card-body">
                 <h5 class="card-title">Hébergment Disponibles</h5>
@@ -11,29 +11,35 @@
                 <a href="#" class="btn btn-primary">Go somewhere</a>#}
                 <div class="container">
                     <center>
-                        <div class="row">        
-                            <div class="card col-lg" style="width: 18rem; margin: 0 10px">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                            <div class="card col-lg" style="width: 18rem; margin: 0 10px">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ hotel.nom }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                        </div>
-                    </center>
-                </div>
 
+
+                        <div class="row">        
+                            {% set nb_hebergement = null %}
+                            {% for hotel in hotels %}
+                                <div class="card col-lg" style="width: 18rem; margin: 0 10px">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ hotel.nom }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="card-link">Card link</a>
+                                        <a href="#" class="card-link">Another link</a>
+                                    </div>
+                                </div>
+                                {% if loop.index %1 == 0 %}
+                                </div>
+                            {% endif %}
+                            {% set nb_hebergement= loop.index %}
+
+                        {% endfor %}
+                        {% if nb_hebergement %1 != 0 %}
+                    </div>
+                {% endif %}
+
+
+
+                </center>
             </div>
+
+        </div>
     </center>
 {% endblock %}

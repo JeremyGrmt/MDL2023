@@ -33,12 +33,7 @@ class Hotel
 
     #[ORM\Column(length: 50)]
     private ?string $ville = null;
-
-    #[ORM\Column(length: 10)]
-    private ?string $tel = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $mail = null;
+    
     #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Chambre::class)]
     private Collection $chambres;
 
