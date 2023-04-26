@@ -44,7 +44,7 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/hebergement/">les formules d'hébergement</a>
                 </li>
-                {% if app.user and app.user.role == 'ROLE_ADMIN' %}
+                {% if app.user is defined and is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/admin/">administration</a>
                     </li>
