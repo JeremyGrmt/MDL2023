@@ -6,56 +6,35 @@
                 CONGRÈS DE LA FÉDÉRATION FRANÇAISE D'ESCRIME
             </div>
             <div class="card-body">
-                <h5 class="card-title">du 16 septembre 2023 au 17 septembre 2023</h5>
-                {#<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>#}
+                <h5 class="card-title">du 28 septembre 2023 au 29 septembre 2023</h5>
                 <div class="container">
                     <div class="row">
-                    {#                    <center>#}
-                    {% set cpt_atelier = null  %} 
-                    {% for atelier in ateliers %} 
-                        {% if loop.index % 3 == 1 %}
-                            <div class="row">
-                            {% endif %}
-                            <div class="card col-md" style="width: 18rem; margin: 0 10px">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ atelier.nom }}</h5>
-                                    <h6 class="card-subtitle mb-2 ">{{ vacation.date_heure_debut }} - {{  vacation.date_heure_fin }}</h6>
-                                    <p class="card-text text-muted">{{ atelier.nbPlaces }}</p>
-                                    <p class="card-text">listes des themes</p>
+                        {% set cpt_atelier = null  %} 
+                        {% for atelier in ateliers %} 
+                            {% if loop.index % 3 == 1 %}
+                                <div class="row">
+                                {% endif %}
+                                <div class="card col-md" style="width: 18rem; margin: 0 10px">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ atelier.libelle }}</h5>
+                                        <h6 class="card-subtitle mb-2 ">{{ vacations[atelier.id - 1].DateHeureDebut|date('d/m/Y H:i') }} - {{  vacations[atelier.id - 1].DateHeureFin|date('d/m/Y H:i')}}</h6>
+                                        <p class="card-text text-muted"> Nombre de places :{{ atelier.nbplaces }}</p>
+                                        <p class="card-title">thèmes: </p>
+                                        {% for theme in atelier.theme %}      
+                                            <p> - {{ theme.libelle }}</p>
+                                        {%  endfor %}
+                                    </div>
                                 </div>
-                            </div>
-                            {% if loop.index % 3 == 0 %}
-                            </div>
-                        {% endif %}
-                        {% set cpt= loop.index %}
-
-                    {% endfor %} 
-                    {% if cpt  % 3 != 0 %}
-                            </div>
-                        {% endif %}
-
-
-                    <div class="card col-md" style="width: 18rem; margin: 0 10px">  
-                        <div class="card-body">
-                            <h5 class="card-title">{{ atelier.nom }}</h5>
-                            <h6 class="card-subtitle mb-2 ">{{ vacation.date_heure_debut }} - {{  vacation.date_heure_fin }}</h6>
-                            <p class="card-text text-muted">{{ atelier.nbPlaces }}</p>
-                            <p class="card-text">listes des themes</p>
+                                {% if loop.index % 3 == 0 %}
+                                </div>
+                            {% endif %}
+                            {% set cpt_atelier= loop.index %}
+                        {% endfor %} 
+                        {% if cpt_atelier  % 3 != 0 %}
                         </div>
-                    </div>
-                    <div class="card col-md" style="width: 18rem; margin: 0 10px">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ atelier.nom }}</h5>
-                            <h6 class="card-subtitle mb-2 ">{{ vacation.date_heure_debut }} - {{  vacation.date_heure_fin }}</h6>
-                            <p class="card-text text-muted">{{ atelier.nbPlaces }}</p>
-                            <p class="card-text">listes des themes</p>
-                        </div>
-                    </div>
+                    {% endif %}
                 </div>
-                {#                    </center>#}
             </div>
-
         </div>
     </center>
 {% endblock %}

@@ -1,6 +1,6 @@
 doctrine:
     dbal:
-        default_connection: userMdl
+        default_connection: databasecreator
         connections:
             userMdl:
                 driver: 'pdo_mysql'

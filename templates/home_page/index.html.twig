@@ -13,7 +13,7 @@
         {% if ateliers is defined and ateliers is not empty%}
         {{ include("home_page/_fenetreCongres.html.twig") }}
         {% endif %}
-        {% if hotels is defined and ateliers is not empty%}
+        {% if hotels is defined and hotels is not empty%}
         {{ include("home_page/_hebergements.html.twig") }}
         {% endif %}
         {#        <img src="{{asset(absolute_url("images/BgEscrime.jpg"))}}" style="width:100%; position: absolute ; z-index: 1; filter: blur(4px)"width="100%" height="auto" alt="...">#}

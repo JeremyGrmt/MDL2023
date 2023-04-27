@@ -6,9 +6,7 @@
 
             </div>
             <div class="card-body">
-                <h5 class="card-title">Hébergment Disponibles</h5>
-                {#<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>#}
+                <h5 class="card-title">Hébergments Disponibles</h5>
                 <div class="container">
                     <center>
 
@@ -16,22 +14,23 @@
                         <div class="row">        
                             {% set nb_hebergement = null %}
                             {% for hotel in hotels %}
-                                <div class="card col-lg" style="width: 18rem; margin: 0 10px">
+                                <div class="card col-md" style="width: 18rem; margin: 0 10px">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ hotel.nom }}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Card link</a>
-                                        <a href="#" class="card-link">Another link</a>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ hotel.adresse }} {{ hotel.ville }} {{ hotel.cp }}</h6>
+                                        <h6 class="card-subtitle mb-2">Offres :</h6>
+                                        {% for offre in hotel.tarifs %}
+                                        <p class="card-text">{{ offre.categorie.libelleCategorie }}:  {{ offre.tarifNuite }} €</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
-                                {% if loop.index %1 == 0 %}
+                                {% if loop.index %1 == 1 %}
                                 </div>
                             {% endif %}
                             {% set nb_hebergement= loop.index %}
 
                         {% endfor %}
-                        {% if nb_hebergement %1 != 0 %}
+                        {% if nb_hebergement %1 != 1 %}
                     </div>
                 {% endif %}
 
