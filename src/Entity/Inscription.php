@@ -36,6 +36,18 @@ class Inscription
     }
 
 
+    public function getRestaurer(): ?Restauration
+    {
+        return $this->restauration;
+    }
+
+    public function setRestauration(?Restauration $restauration): self
+    {
+        $this->restauration = $restauration;
+
+        return $this;
+    }
+    
     /**
      * @return Collection<int, atelier>
      */

@@ -27,7 +27,7 @@ class CompteCrudController extends AbstractCrudController {
         return [
             TextField::new('email'),
                     ChoiceField::new('roles')
-                    ->setChoices(['ROLE_USER' => 'ROLE_USER', 'ROLE_ADMIN' => 'ROLE_ADMIN'])
+                    ->setChoices(['ROLE_USER' => 'ROLE_USER', 'ROLE_ADMIN' => 'ROLE_ADMIN','ROLE_LICENCIE' =>'ROLE_LICENCIE'])
                     ->allowMultipleChoices()
                     ->renderExpanded(),
             BooleanField::new('isVerified'),
