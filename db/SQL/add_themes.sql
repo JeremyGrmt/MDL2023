@@ -1,7 +1,7 @@
 use BDD_MDL_TEST;
 insert into theme(libelle) values ( "Diagnostic et identification des critères du club");
 insert into atelier_theme(atelier_id, theme_id) values(1,1);
-insert into theme(libelle) values ( "Analyse de l'evt et méthodo de mise en oeuvre du projet");
+insert into theme(libelle) values ( "Analyse systémique de l'environnement et méthodologie de mise en oeuvre du projet");
 insert into atelier_theme(atelier_id, theme_id) values(1,2);
 insert into theme(libelle) values ( "Actions soludaires et innovantes");
 insert into atelier_theme(atelier_id, theme_id) values(1,3);
@@ -16,14 +16,14 @@ insert into theme(libelle) values ( "Création - Obligations légales");
 insert into atelier_theme(atelier_id, theme_id) values(2,7);
 insert into theme(libelle) values ( "Gestion du personnel, de la structure et des conflits");
 insert into atelier_theme(atelier_id, theme_id) values(2,8);
-insert into theme(libelle) values ( "Relations internes, externes et avec comité départemental, la ligue et la fédé");
+insert into theme(libelle) values ( "Relations internes, externes et avec le comité départemental, la ligue et la fédération");
 insert into atelier_theme(atelier_id, theme_id) values(2,9);
 insert into theme(libelle) values ( "Conventions");
 insert into atelier_theme(atelier_id, theme_id) values(2,10);
 insert into theme(libelle) values ( "Partenariats");
 insert into atelier_theme(atelier_id, theme_id) values(2,11);
 
-insert into theme(libelle) values ( "Logiciel FFE de gestion des compétitions. présentation + formation");
+insert into theme(libelle) values ( "Logiciel FFE de gestion des compétitions (présentation et formation)");
 insert into atelier_theme(atelier_id, theme_id) values(3,12);
 insert into theme(libelle) values ( "Présentation du document <L'arbitrage en images>");
 insert into atelier_theme(atelier_id, theme_id) values(3,13);
