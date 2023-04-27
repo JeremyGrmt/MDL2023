@@ -19,7 +19,6 @@ class Vacation
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-
     private ?\DateTimeInterface $date_heure_debut = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

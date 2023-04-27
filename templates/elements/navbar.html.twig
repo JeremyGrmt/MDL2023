@@ -44,9 +44,6 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/hebergement/">les formules d'hébergement</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/validation/">Inscription Atelier</a>
-                </li>
                 {% if app.user is defined and is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/admin/">administration</a>
@@ -54,6 +51,12 @@
                 {% endif %}
             </ul>
             {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/inscription/">Inscription atelier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/validation/">Validation inscription</a>
+                </li>
                 <form>
                     <a class="btn btn-outline-success" href="/logout">Déconnexion</a>
                 </form>
