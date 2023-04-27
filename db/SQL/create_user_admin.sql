@@ -1,4 +1,4 @@
 create user 'databasecreator'@'localhost' identified by 'databasecreator';
-grant ALTER, CREATE, DROP on *.* to 'databasecreator'@'localhost';
+grant all on *.* to 'databasecreator'@'localhost';
 
 
