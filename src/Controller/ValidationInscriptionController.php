@@ -20,7 +20,7 @@ class ValidationInscriptionController extends AbstractController {
 
         if ($this->getUser()->getInscription() == null) {
             $this->addFlash('error', 'Aucune inscription présente sur ce compte');
-            return $this->redirectToRoute('app_accueil');
+            return $this->render('home_page/index.html.twig');
         }
 
         $licencie = $api->getLicencies($this->getUser()->getNumlicence());
