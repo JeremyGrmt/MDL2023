@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\CallApiService;
 use App\Entity\Compte;
 use App\Form\RegistrationFormType;
 use App\Repository\CompteRepository;
@@ -11,6 +12,7 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,21 +28,25 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/inscription', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(HttpClientInterface $client, Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
+        $api = new CallApiService($client, 'http://mdlapi.fr/');
         $user = new Compte();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
+            // on recupere depuis l'api le licencie concerné par le numero de licence
+             $licencie =$api->getAPI('licencies', 0, '?numlicence=' . $form->get('numlicence')->getData());
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
-
+            $user->setEmail($licencie['hydra:member'][0]['mail']);
+            
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -48,7 +54,7 @@ class RegistrationController extends AbstractController
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('contactMDL@mdl.com', 'Mdl mail bot'))
-                    ->to($user->getEmail())
+                    ->to($licencie['hydra:member'][0]['mail'])
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );

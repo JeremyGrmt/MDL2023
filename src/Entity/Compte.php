@@ -41,6 +41,9 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(inversedBy: 'compte', cascade: ['persist', 'remove'])]
     private ?Inscription $inscription = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $numlicence = null;
+
     public function __construct()
     {
     }
@@ -176,6 +179,18 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
     public function setInscription(?Inscription $inscription): self
     {
         $this->inscription = $inscription;
+
+        return $this;
+    }
+
+    public function getNumlicence(): ?string
+    {
+        return $this->numlicence;
+    }
+
+    public function setNumlicence(string $numlicence): self
+    {
+        $this->numlicence = $numlicence;
 
         return $this;
     }
