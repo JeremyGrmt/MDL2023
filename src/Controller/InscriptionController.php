@@ -26,7 +26,7 @@ class InscriptionController extends AbstractController
 
         if ($this->getUser()->getInscription()) {
             $this->addFlash('error', "Vous posséder une inscription allez dans l'onglet valider");
-            return $this->redirectToRoute('app_accueil');
+            return $this->render('home_page/index.html.twig');
         }
 
         // Récupération des informations
