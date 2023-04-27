@@ -20,7 +20,7 @@ use Symfony\Component\Mime\Address;
 
 class InscriptionController extends AbstractController
 {
-    #[Route('/inscription', name: 'app_inscription')]
+    #[Route('/inscriptionatelier', name: 'app_inscription')]
     public function index(MailerInterface $mailer, EntityManagerInterface $manager, Request $request, CallApiService $api): Response
     {
 
