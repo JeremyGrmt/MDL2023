@@ -47,17 +47,32 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
     }
-
+    /**
+     * define the id of the user
+     *
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * define the id of the user
+     *
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     *  define the email of the user
+     *
+     * @param string $email
+     * @return self
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -136,6 +151,7 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
 
     public function isVerified(): bool
     {
