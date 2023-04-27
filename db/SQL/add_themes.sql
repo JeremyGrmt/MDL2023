@@ -1,0 +1,68 @@
+use bdd_mdl_test;
+insert into theme(libelle) values ( "Diagnostic et identification des critères du club");
+insert into atelier_theme(atelier_id, theme_id) values(1,1);
+insert into theme(libelle) values ( "Analyse systémique de l'environnement et méthodologie de mise en oeuvre du projet");
+insert into atelier_theme(atelier_id, theme_id) values(1,2);
+insert into theme(libelle) values ( "Actions soludaires et innovantes");
+insert into atelier_theme(atelier_id, theme_id) values(1,3);
+insert into theme(libelle) values ( "Financements");
+insert into atelier_theme(atelier_id, theme_id) values(1,4);
+insert into theme(libelle) values ( "Outils et documentation");
+insert into atelier_theme(atelier_id, theme_id) values(1,5);
+insert into theme(libelle) values ( "Valoriser et communiquer sur le projet");
+insert into atelier_theme(atelier_id, theme_id) values(1,6);
+
+insert into theme(libelle) values ( "Création - Obligations légales");
+insert into atelier_theme(atelier_id, theme_id) values(2,7);
+insert into theme(libelle) values ( "Gestion du personnel, de la structure et des conflits");
+insert into atelier_theme(atelier_id, theme_id) values(2,8);
+insert into theme(libelle) values ( "Relations internes, externes et avec le comité départemental, la ligue et la fédération");
+insert into atelier_theme(atelier_id, theme_id) values(2,9);
+insert into theme(libelle) values ( "Conventions");
+insert into atelier_theme(atelier_id, theme_id) values(2,10);
+insert into theme(libelle) values ( "Partenariats");
+insert into atelier_theme(atelier_id, theme_id) values(2,11);
+
+insert into theme(libelle) values ( "Logiciel FFE de gestion des compétitions (présentation et formation)");
+insert into atelier_theme(atelier_id, theme_id) values(3,12);
+insert into theme(libelle) values ( "Présentation du document <L'arbitrage en images>");
+insert into atelier_theme(atelier_id, theme_id) values(3,13);
+insert into theme(libelle) values ( "Plaquettes<Guide projet du club>");
+insert into atelier_theme(atelier_id, theme_id) values(3,14);
+insert into theme(libelle) values ( "Labellisation du club");
+insert into atelier_theme(atelier_id, theme_id) values(3,15);
+insert into theme(libelle) values ( "Aménagement des équipements");
+insert into atelier_theme(atelier_id, theme_id) values(3,16);
+insert into theme(libelle) values ( "Assurances");
+insert into atelier_theme(atelier_id, theme_id) values(3,17);
+
+insert into theme(libelle) values ( "Observations et analyses sur l'encadrement actuel");
+insert into atelier_theme(atelier_id, theme_id) values(4,18);
+insert into theme(libelle) values ( "Propositions de nouveaux schémas d'organisation");
+insert into atelier_theme(atelier_id, theme_id) values(4,19);
+insert into theme(libelle) values ( "Profils types et pratiques innovantes");
+insert into atelier_theme(atelier_id, theme_id) values(4,20);
+insert into theme(libelle) values ( "Critères et seuils nécessaires à la pérennité de l'emploi");
+insert into atelier_theme(atelier_id, theme_id) values(4,21);
+insert into theme(libelle) values ( "Exercice du métier d'enseignant (avantages et inconvénients)");
+insert into atelier_theme(atelier_id, theme_id) values(4,22);
+
+insert into theme(libelle) values ( "Présentation");
+insert into atelier_theme(atelier_id, theme_id) values(5,23);
+insert into theme(libelle) values ( "Fonctionnement");
+insert into atelier_theme(atelier_id, theme_id) values(5,24);
+insert into theme(libelle) values ( "Objectifs");
+insert into atelier_theme(atelier_id, theme_id) values(5,25);
+insert into theme(libelle) values ( "Nouveaux Diplômes");
+insert into atelier_theme(atelier_id, theme_id) values(5,26);
+insert into theme(libelle) values ( "Financements");
+insert into atelier_theme(atelier_id, theme_id) values(5,27);
+
+insert into theme(libelle) values ( "Les enjeux climatiques, énergétiques et économiques");
+insert into atelier_theme(atelier_id, theme_id) values(6,28);
+insert into theme(libelle) values ( "Sport et développement durable");
+insert into atelier_theme(atelier_id, theme_id) values(6,29);
+insert into theme(libelle) values ( "Démarche fédérale");
+insert into atelier_theme(atelier_id, theme_id) values(6,30);
+insert into theme(libelle) values ( "Echange");
+insert into atelier_theme(atelier_id, theme_id) values(6,31);
