@@ -1,4 +1,4 @@
-use bdd_mdl_test;
+use BDD_MDL_TEST;
 insert into atelier(libelle, nbplaces)
 value('Le club et son projet', 10);
 insert into atelier(libelle, nbplaces)

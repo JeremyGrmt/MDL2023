@@ -1,4 +1,4 @@
-use bdd_mdl_test;
+use BDD_MDL_TEST;
 insert into theme(libelle) values ( "Diagnostic et identification des critères du club");
 insert into atelier_theme(atelier_id, theme_id) values(1,1);
 insert into theme(libelle) values ( "Analyse systémique de l'environnement et méthodologie de mise en oeuvre du projet");

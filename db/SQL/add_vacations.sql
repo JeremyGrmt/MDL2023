@@ -1,4 +1,4 @@
-use bdd_mdl_test;
+use BDD_MDL_TEST;
 
 insert into vacation(date_heure_debut, date_heure_fin) values ('2023-09-28 09:00:00', '2023-09-28 11:00:00');
 insert into atelier_vacation(atelier_id, vacation_id) values(1,1);
