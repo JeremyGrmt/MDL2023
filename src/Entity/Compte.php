@@ -153,11 +153,20 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
+    /**
+     * check if the user is verified
+     */
     public function isVerified(): bool
     {
         return $this->isVerified;
     }
 
+    /**
+     * define if the user is verified
+     *
+     * @param bool $isVerified
+     * @return self
+     */
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
@@ -165,11 +174,19 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * Get the value of licencie
+     */
     public function getLicencie(): ?Licencie
     {
         return $this->licencie;
     }
 
+    /**
+     * Set the value of licencie
+     *
+     * @return  self
+     */
     public function setLicencie(?Licencie $licencie): self
     {
         // unset the owning side of the relation if necessary
@@ -187,6 +204,9 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * Get the value of inscription
+     */
     public function getInscription(): ?Inscription
     {
         return $this->inscription;
