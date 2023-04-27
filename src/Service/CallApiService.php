@@ -12,6 +12,13 @@ class CallApiService
         $this->api_Url =  $api_Url;
     }
       
+    /**
+     *  fonction permettant de retourner sous formes d'array les donnees depuis l'api
+     * @param string $table
+     * @param type $id
+     * @param string $URLparam
+     * @return array
+     */
     public function getAPI(string $table,$id = 0, string $URLparam = ""):array {
         
         $url = $this->api_Url. $table;       
