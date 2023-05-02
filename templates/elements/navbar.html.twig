@@ -8,42 +8,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Les disciplines
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/disciplines/epee">Épée</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/disciplines/fleuret">Fleuret</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/disciplines/sabre">Sabre</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/datesCongres/">dates de congrès</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Les ateliers
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/ateliers/projetsClub">Le club et son projet</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/ateliers/fonctionnementClub">Le fonctionnement du club</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/ateliers/outilsClub">Outils à disposition et remis aux clubs</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/ateliers/observatoire">Observatoire des métiers de l'escrime</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/ateliers/iffe">I.F.F.E</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/ateliers/devDurable">Développement durable</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/hebergement/">les formules d'hébergement</a>
-                </li>
                 {% if app.user is defined and is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/admin/">administration</a>
